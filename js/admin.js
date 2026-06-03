@@ -108,7 +108,7 @@ window.showAdminPanel = async function(panel, el) {
             <tbody>
               ${orders.map(o => {
                 const customer = userMap[o.userId] || { name: 'Guest Customer', email: o.userId ? `ID: ${o.userId.slice(0, 8)}...` : 'N/A' };
-                const statuses = ['Processing', 'Shipped', 'In Transit', 'Delivered', 'Cancelled'];
+                const statuses = ['Processing', 'Confirmed', 'Packed', 'Shipped', 'Out for Delivery', 'Delivered', 'Cancelled'];
                 const statusOptions = statuses.map(s => `
                   <option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>
                 `).join('');

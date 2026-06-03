@@ -566,8 +566,8 @@ img { max-width: 100%; height: auto; display: block; }
 .order-id { font-weight: 700; }
 .order-status { padding: 4px 12px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; }
 .status-delivered { background: rgba(16,185,129,0.15); color: var(--success); }
-.status-processing { background: rgba(59,130,246,0.15); color: var(--accent); }
-.status-transit { background: rgba(245,158,11,0.15); color: var(--warning); }
+.status-processing, .status-confirmed, .status-packed { background: rgba(59,130,246,0.15); color: var(--accent); }
+.status-transit, .status-shipped, .status-out-for-delivery { background: rgba(245,158,11,0.15); color: var(--warning); }
 .status-cancelled { background: rgba(239,68,68,0.15); color: var(--danger); }
 .order-items { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 .order-item-thumb { width: 48px; height: 48px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); }
@@ -1050,10 +1050,22 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
+.status-confirmed, .status-packed {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
 .status-shipped {
   background: rgba(59, 130, 246, 0.15);
   color: var(--accent);
   border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-out-for-delivery {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .status-in-transit, .status-transit {
