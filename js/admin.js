@@ -454,8 +454,15 @@ window.initUploaderEvents = function() {
       dropzone.classList.remove('dragover');
     }, false);
   });
+
+  // Intercept the drop event on the file input target itself to prevent the browser
+  // from updating the input's files list and triggering a secondary 'change' event.
+  fileInput.addEventListener('drop', (e) => {
+    e.preventDefault();
+  });
   
   dropzone.addEventListener('drop', (e) => {
+    e.preventDefault();
     const dt = e.dataTransfer;
     const files = dt.files;
     handleUploadedFiles(files);
@@ -497,6 +504,10 @@ async function handleUploadedFiles(files) {
   }
   
   window.renderImagesPreview();
+  
+  // Clear the input value so the change event can trigger again if the user re-selects the same file
+  const input = document.getElementById('ap-images-input');
+  if (input) input.value = '';
 }
 
 window.updateOrderStatus = async function(orderId, status) {
