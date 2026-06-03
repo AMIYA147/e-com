@@ -12,7 +12,7 @@ Electronic World is a state-of-the-art, feature-rich, and visually stunning e-co
 - **Dynamic Search & Autocomplete**: Search bar featuring debounced autocomplete suggestions, cache matching, and category filtering.
 - **Interactive Review System**: Users can submit star ratings and detailed comments; live update loops instantly recalculate average product ratings.
 - **Persistent Wishlist**: Fully synchronized with Supabase database for logged-in accounts, with automatic fallback to local storage for guests.
-- **Shopping Cart & Checkout**: Interactive cart sidebars, item quantity selectors, and simulated checkout flow (including standard cash, cards, and UPI).
+- **Shopping Cart & Simulated Checkout**: Interactive cart sidebars, item quantity selectors, and simulated checkout flow. *Note: Payment gateway integration is not included in the current release. The checkout workflow is implemented for demonstration and testing purposes. Razorpay integration and real payment processing are planned for a future release.*
 
 ### 🛡️ User Authentication & Accounts
 - **Supabase Auth Integration**: Secure registration, login, token-based session recovery, and automated redirection to initial destination paths on login.
@@ -34,6 +34,21 @@ Electronic World is a state-of-the-art, feature-rich, and visually stunning e-co
 - **Hosting**:
   - **Frontend**: Vercel (Static Hosting with Rewrite Router rules)
   - **Backend**: Render (Web Service API)
+
+---
+
+## 🗺️ Roadmap & Future Enhancements
+
+Planned features and enhancements for future releases include:
+
+- **Razorpay Payment Gateway Integration**:
+  - Secure checkouts supporting **Credit/Debit Card Payments**
+  - Instant and seamless **UPI Payments**
+  - **Net Banking** options with top financial institutions
+  - Webhook handlers for robust backend **Payment Verification**
+- **Customer Communications**:
+  - Automatic **Order Confirmation Emails** sent upon successful transaction validation
+  - Automated dynamic **Invoice Generation** with downloadable PDF receipts
 
 ---
 
