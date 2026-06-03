@@ -7,6 +7,28 @@ const { products: seedProducts } = require('./data/seed');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ============ CORS MIDDLEWARE ============
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin) {
+    const isLocalhost = /^http:\/\/localhost(:\d+)?$/.test(origin) || /^http:\/\/127\.0\.0\.1(:\d+)?$/.test(origin);
+    const isAllowedRender = origin === 'https://e-com-kyzr.onrender.com' || origin.endsWith('.onrender.com');
+    
+    if (isLocalhost || isAllowedRender) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+  }
+  
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
