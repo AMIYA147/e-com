@@ -13,8 +13,9 @@ app.use((req, res, next) => {
   if (origin) {
     const isLocalhost = /^http:\/\/localhost(:\d+)?$/.test(origin) || /^http:\/\/127\.0\.0\.1(:\d+)?$/.test(origin);
     const isAllowedRender = origin === 'https://e-com-kyzr.onrender.com' || origin.endsWith('.onrender.com');
+    const isAllowedVercel = origin.endsWith('.vercel.app');
     
-    if (isLocalhost || isAllowedRender) {
+    if (isLocalhost || isAllowedRender || isAllowedVercel) {
       res.setHeader('Access-Control-Allow-Origin', origin);
     }
   }
