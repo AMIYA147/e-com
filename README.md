@@ -1,13 +1,13 @@
-# 🌐 ELECTRONIC WORLD — Premium E-commerce Web Application
+# 🌐 ELECTRONIC WORLD — E-commerce Web Application
 
-Electronic World is a state-of-the-art, feature-rich, and visually stunning e-commerce platform specializing in consumer electronics. Built on a modern decoupled architecture, it delivers lightning-fast performance, elegant glassmorphism aesthetics, dynamic dark/light theme switching, and seamless real-time data synchronization.
+Electronic World is a modern full-stack e-commerce platform specializing in consumer electronics. The application is built using a decoupled architecture with a static frontend hosted on Vercel, an Express.js backend hosted on Render, and Supabase for authentication and database services. The platform includes product catalog management, user authentication, reviews, wishlists, shopping cart functionality, and an administrative dashboard.
 
 ---
 
 ## ✨ Features
 
 ### 🛒 Client & Shopping Experience
-- **Responsive Layout**: Designed for visual excellence across mobile, tablet, and desktop screens.
+- **Responsive Layout**: Designed for layout consistency across mobile, tablet, and desktop screens.
 - **Dynamic SEO Slug Routing**: Clean, SEO-friendly URLs (`/product/:slug`) mapped transparently via Vercel edge rewrite rules.
 - **Dynamic Search & Autocomplete**: Search bar featuring debounced autocomplete suggestions, cache matching, and category filtering.
 - **Interactive Review System**: Users can submit star ratings and detailed comments; live update loops instantly recalculate average product ratings.
@@ -21,7 +21,7 @@ Electronic World is a state-of-the-art, feature-rich, and visually stunning e-co
 ### ⚙️ Admin Dashboard
 - **Comprehensive Analytics**: Dashboard reporting sales, active inventory, and registration metrics.
 - **Dynamic Catalog Management**: Create, edit, and archive products. Features automated dynamic SEO slug generation.
-- **Dynamic Photo Uploads**: Drag-and-drop image uploading for quick, visual inventory updates.
+- **Dynamic Photo Uploads**: Drag-and-drop image uploading for inventory updates.
 - **Order Management**: View customer orders and change order statuses using standard selectors synced with customer order timelines.
 
 ---
