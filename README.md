@@ -1,0 +1,96 @@
+# 🌐 ELECTRONIC WORLD — Premium E-commerce Web Application
+
+Electronic World is a state-of-the-art, feature-rich, and visually stunning e-commerce platform specializing in consumer electronics. Built on a modern decoupled architecture, it delivers lightning-fast performance, elegant glassmorphism aesthetics, dynamic dark/light theme switching, and seamless real-time data synchronization.
+
+---
+
+## ✨ Features
+
+### 🛒 Client & Shopping Experience
+- **Responsive Layout**: Designed for visual excellence across mobile, tablet, and desktop screens.
+- **Dynamic SEO Slug Routing**: Clean, SEO-friendly URLs (`/product/:slug`) mapped transparently via Vercel edge rewrite rules.
+- **Dynamic Search & Autocomplete**: Search bar featuring debounced autocomplete suggestions, cache matching, and category filtering.
+- **Interactive Review System**: Users can submit star ratings and detailed comments; live update loops instantly recalculate average product ratings.
+- **Persistent Wishlist**: Fully synchronized with Supabase database for logged-in accounts, with automatic fallback to local storage for guests.
+- **Shopping Cart & Checkout**: Interactive cart sidebars, item quantity selectors, and simulated checkout flow (including standard cash, cards, and UPI).
+
+### 🛡️ User Authentication & Accounts
+- **Supabase Auth Integration**: Secure registration, login, token-based session recovery, and automated redirection to initial destination paths on login.
+- **Session Resiliency**: Session auto-cleanup intercepts `401 Unauthorized` responses from the backend, clears expired local tokens, and redirects safely.
+
+### ⚙️ Admin Dashboard
+- **Comprehensive Analytics**: Dashboard reporting sales, active inventory, and registration metrics.
+- **Dynamic Catalog Management**: Create, edit, and archive products. Features automated dynamic SEO slug generation.
+- **Dynamic Photo Uploads**: Drag-and-drop image uploading for quick, visual inventory updates.
+- **Order Management**: View customer orders and change order statuses using standard selectors synced with customer order timelines.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: HTML5, Vanilla CSS3 (Custom Design System with CSS variables), Vanilla JavaScript.
+- **Backend API**: Node.js, Express.js.
+- **Database / Auth**: Supabase (PostgreSQL, Realtime, Supabase Auth).
+- **Hosting**:
+  - **Frontend**: Vercel (Static Hosting with Rewrite Router rules)
+  - **Backend**: Render (Web Service API)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- A [Supabase](https://supabase.com/) account & project
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AMIYA147/e-com.git
+   cd e-com
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure your environmental variables. Create a `.env` file in the root directory:
+   ```env
+   PORT=3000
+   SUPABASE_URL=your_supabase_project_url
+   SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. Seed your Supabase database:
+   ```bash
+   npm run seed-db
+   ```
+
+5. Run the local development server:
+   ```bash
+   node server.js
+   ```
+   Open your browser to `http://localhost:3000`.
+
+---
+
+## 🌐 Production Deployment Configuration
+
+### Frontend (Vercel)
+To accommodate dynamic product slug page routes on a static server, the repository includes a custom Vercel configuration:
+- **[vercel.json](file:///d:/patra%20trail/vercel.json)**:
+  ```json
+  {
+    "rewrites": [
+      {
+        "source": "/product/:path*",
+        "destination": "/product.html"
+      }
+    ]
+  }
+  ```
+Vercel hosts the static HTML/CSS/JS frontend files and routes all dynamic requests matching `/product/<slug>` internally to `/product.html`, which handles path parameter parsing via client-side scripts.
+
+### Backend (Render)
+The Express backend is hosted on Render and serves API endpoints dynamically. CORS configuration in `server.js` automatically allows requests matching local development environments as well as all production `.vercel.app` subdomains.
