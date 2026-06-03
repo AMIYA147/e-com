@@ -472,8 +472,15 @@ window.initUploaderEvents = function() {
     handleUploadedFiles(e.target.files);
   });
 };
+let lastUploadTime = 0;
 
 async function handleUploadedFiles(files) {
+  const now = Date.now();
+  if (now - lastUploadTime < 100) {
+    return;
+  }
+  lastUploadTime = now;
+
   if (!files || files.length === 0) return;
   
   for (const file of files) {
