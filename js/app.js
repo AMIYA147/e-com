@@ -2,7 +2,7 @@
    ELECTRONIC WORLD — Shared App Module
    ============================================ */
 
-const API = 'http://localhost:3000/api';
+const API = 'https://e-com-kyzr.onrender.com/api';
 
 // ============ SUPABASE CLIENT SETUP ============
 let supabaseInitializedPromise;
