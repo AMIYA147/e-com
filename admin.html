@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — ELECTRONIC WORLD</title>
+  <meta name="description" content="Electronic World Admin Dashboard — Manage products, orders, and users.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="navbar-root"></div>
+  <div style="padding-top:var(--nav-height)">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <h3>Dashboard</h3>
+        <ul class="admin-nav">
+          <li><a href="#" class="active" onclick="showAdminPanel('overview', this)">📊 Overview</a></li>
+          <li><a href="#" onclick="showAdminPanel('products', this)">📦 Products</a></li>
+          <li><a href="#" onclick="showAdminPanel('orders', this)">📋 Orders</a></li>
+          <li><a href="#" onclick="showAdminPanel('users', this)">👥 Users</a></li>
+          <li><a href="#" onclick="showAdminPanel('add-product', this)">➕ Add Product</a></li>
+        </ul>
+        <h3>Quick Links</h3>
+        <ul class="admin-nav">
+          <li><a href="/index.html">🌐 View Store</a></li>
+          <li><a href="/account.html">👤 Account</a></li>
+        </ul>
+      </aside>
+      <main class="admin-content" id="admin-content">
+        <div class="skeleton" style="height:100px;margin-bottom:20px"></div>
+        <div class="skeleton" style="height:300px"></div>
+      </main>
+    </div>
+  </div>
+  <script src="/js/app.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — ELECTRONIC WORLD</title>
+  <meta name="description" content="Manage your account, track orders, and view profile at Electronic World.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="navbar-root"></div>
+  <div class="page-header">
+    <div class="container">
+      <h1 id="account-title">My Account</h1>
+      <div class="breadcrumb"><a href="/">Home</a> <span>›</span> <span>Account</span></div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="auth-area"></div>
+    <div id="account-area" style="display:none"></div>
+  </div>
+  <div id="footer-root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/account.js"></script>
+</body>
+</html>
