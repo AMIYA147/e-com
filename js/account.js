@@ -186,8 +186,12 @@ window.showPanel = async function(panel, el) {
   if (panel === 'orders') {
     panelEl.innerHTML = '<div class="skeleton" style="height:200px; border-radius:8px"></div>';
     try {
-      const orders = await authFetch(`${API}/orders/${user.id}`).then(r => r.json());
-      if (orders.length === 0) {
+      const res = await authFetch(`${API}/orders/${user.id}`);
+      if (!res.ok) {
+        throw new Error('Failed to load order history');
+      }
+      const orders = await res.json();
+      if (!Array.isArray(orders) || orders.length === 0) {
         panelEl.innerHTML = '<div class="empty-state"><div class="empty-icon">📦</div><h3>No orders yet</h3><p>Start shopping to see your orders here</p><a href="/products.html" class="btn btn-primary">Shop Now</a></div>';
       } else {
         panelEl.innerHTML = `<h2 style="margin-bottom:20px">My Orders</h2>` + orders.map(o => {

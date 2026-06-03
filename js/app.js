@@ -101,7 +101,25 @@ async function authFetch(url, options = {}) {
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
-  return fetch(url, { ...options, headers });
+  
+  const res = await fetch(url, { ...options, headers });
+  
+  if (res.status === 401) {
+    console.warn("Session expired or invalid token on API request. Logging out client.");
+    localStorage.removeItem('pe_token');
+    localStorage.removeItem('pe_user');
+    document.cookie = "pe_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax; Secure";
+    
+    // Force a redirect or reload to show the login screen
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('error') !== 'session_expired') {
+      window.location.href = '/account.html?error=session_expired';
+    } else {
+      window.location.reload();
+    }
+  }
+  
+  return res;
 }
 
 // ============ THEME LOGIC ============
