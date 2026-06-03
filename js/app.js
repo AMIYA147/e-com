@@ -14,7 +14,7 @@ function ensureSupabase() {
   
   supabaseInitializedPromise = (async () => {
     try {
-      const config = await fetch('/api/config').then(r => r.json());
+      const config = await fetch(`${API}/config`).then(r => r.json());
       
       // Sanitize URL and Key on the frontend to avoid trailing slashes or duplicate paths
       let supabaseUrl = config.supabaseUrl;
